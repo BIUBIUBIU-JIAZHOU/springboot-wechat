@@ -1,0 +1,26 @@
+<!--pages/query/query.wxml-->
+<view>
+  <view >
+    <input placeholder="请输入书名" bindchange="inputChange" />
+    <button type="primary" bindtap="queryBooks">查询</button>
+  </view>
+  <view class="book-content">
+    <view wx:for="{{bookList}}" wx:key="{{index}}" wx:for-index="i" id="{{i}}" bindtap="goToDetailPage">
+      <view class="book-list">
+        <view class="book-image">
+          <image src="{{item.image}}" mode="aspectFit"></image>
+        </view>
+        <view class="book-info">
+          <view class="book-info-style">
+            <view>书名:{{item.bookName}}</view>
+            <view>作者:{{item.author}}\n</view>
+            <view>价格:{{item.isbn}}\n</view>
+            <view>出版信息:{{item.introduction}}\n</view>
+            <view>可借数量:{{item.unborNum}}\n</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>
+  </view>
+</view>
